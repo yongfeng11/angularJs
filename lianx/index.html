@@ -26,9 +26,10 @@
 		};
 		function StartUpController($scope){
 			$scope.funding={startingEstimate:0};
-			$scope.computeNeed=function(){
+			var computeNeed=function(){
 				$scope.needed=$scope.funding.startingEstimate*10;
 			}
+			$scope.$watch("funding.startingEstimate",computeNeed)
 		}
 	</script>
 </body>

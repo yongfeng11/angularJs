@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>hehe</title>
-	</head>
-	<body ng-app>
-		<div ng-controller="HelloController">
-			<p>{{greeting.text}},Word</p>
-		</div>
-		
-		<script type="text/javascript" src="js/angular.min.js" ></script>
-		<script type="text/javascript">
-			function HelloController($scope){
-			    $scope.greeting={text:"Hello"};
+<head>
+	<meta charset="utf-8" />
+	<title>hehe</title>
+</head>
+<body ng-app>
+	
+	<div ng-controller="HelloController">
+		<p>{{greeting.text}},Word</p>
+		<p>{{someText}}</p>
+	</div>
+	
+     <div ng-controller="StartUpController">
+        <form>
+            Starting:<input ng-change="computeNeed()" ng-model="funding.startingEstimate"/>
+            Recommendation:{{needed}}
+        </form>
+     </div>
+	 <script type="text/javascript" src="js/angular.min.js"></script>
+	 <script type="text/javascript">
+	 	var someText="You have started your journey.";
+		function HelloController($scope){
+			$scope.greeting={text:"Hello"};
+			$scope.someText=someText;
+		};
+		function StartUpController($scope){
+			$scope.funding={startingEstimate:0};
+			$scope.computeNeed=function(){
+				$scope.needed=$scope.funding.startingEstimate*10;
 			}
-		</script>
-	</body>
+		}
+	</script>
+</body>
 </html>

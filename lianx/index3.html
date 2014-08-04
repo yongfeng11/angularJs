@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8" />
+	<title>Your Shopping Cart</title>
+</head>
+<body ng-controller="Ctrl2">
+	<div ng-controller="Ctrl2">
+		{{name}}
+		{{myAlert();}}
+	</div>
+	
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript">
+		function Ctrl2 ( $scope ) {
+			$scope.name = "hello word";
+			$scope.myAlert = function () {
+				alert(10);
+			}
+		}
+	</script>
+</body>
+</html>
